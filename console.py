@@ -30,4 +30,12 @@ album_repo.save(album_3)
 found_album = album_repo.select(album_2.id)
 print(found_album.artist.name)
 
+# album_repo.delete(album_1.id)
+
+# artist_repo.delete(artist_1.id)
+
+artist4 = Artist("Jack Black",artist_1.id)
+artist_repo.update(artist4)
+
+
 pdb.set_trace()

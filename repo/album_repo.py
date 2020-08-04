@@ -36,4 +36,15 @@ def select(id):
     if result is not None:
         artist = artist_repo.select(result['artist_id'])
         album = Album(result['title'],result['genre'], artist, result['id'])
-    return album    
+    return album   
+
+def delete(id):
+    sql = "DELETE FROM albums WHERE id = %s"
+    values = [id]
+    run_sql(sql,values) 
+
+def update(album):
+    sql = "UPDATE albums SET (title, genre, artist_id) = (%s, %s, %s) WHERE id = %s"
+    values = [album.title, album.genre, album.artist.id, album.id]
+    run_sql(sql, values) 
+    
